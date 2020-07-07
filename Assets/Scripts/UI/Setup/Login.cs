@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -24,9 +25,34 @@ public class Login : MonoBehaviour
 
     private void OnBtnOKClick()
     {
-        Debug.Log("ok btn");
-        //链接服务器，等待返回数据
-        //暂时用假数据，直接进选人界面
-        SceneManager.LoadScene("SelectRole");
+        var account = _inputAccount.text;
+        var password = _inputPassword.text;
+        //账号密码格式检验
+        if (string.IsNullOrEmpty(account)|| string.IsNullOrEmpty(password))
+        {
+            return;
+        }
+
+        _inputAccount.interactable = false;
+        _inputPassword.interactable = false;
+        _btnOK.interactable = false;
+
+        Net.instance.ConnectServer(DoSuccess,DoFailed);
+    
+    }
+
+    private void DoFailed()
+    {
+        _inputAccount.interactable = true;
+        _inputPassword.interactable = true;
+        _btnOK.interactable = true;
+    }
+
+    private void DoSuccess()
+    {
+        var account = _inputAccount.text;
+        var password = _inputPassword.text;
+        var cmd = new LoginCmd() { account = account, password = password };
+        Net.instance.SendCmd(cmd);
     }
 }

@@ -24,9 +24,14 @@ public class EasyEditor : Editor
         if (Directory.Exists(dstPath))
         {
             Directory.Delete(dstPath, true);
+            Directory.CreateDirectory(dstPath);
+        }
+        else
+        {
+            Directory.CreateDirectory(dstPath);
         }
         
-        Directory.CreateDirectory(dstPath);
+        
         //把源路径内的所有文件，复制到目标路径，并添加扩展名
         foreach(var filePath in Directory.GetFiles(srcPath))
         {

@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
 /// <summary>
 /// 角色选择
 /// </summary>
@@ -36,10 +35,10 @@ public class SelectRole : MonoBehaviour
         //_modelTouchRotate.target = _modelPositon.transform;
         _modelTouchRotate.DragCallBack = OnTouchRotate; 
 
-        //初始化角色列表,角色从1开始累加
-        int i = 1;
-        //foreach (var roleInfo in UserData.instance.allRole)
-        foreach(var roleInfo in RoleTable.instance.GetAll())
+        //初始化角色列表,用表格读取角色从1开始累加/通过服务器读取从0开始累加
+        int i = 0;
+        foreach (var roleInfo in UserData.instance.allRole)
+        //foreach(var roleInfo in RoleTable.instance.GetAll())
         {
             var roleItem = ResourcesManager.instance.GetInstance(("UIPrefabs/SelectRole/RoleItem"), _roleListContent.transform);
             
@@ -47,8 +46,8 @@ public class SelectRole : MonoBehaviour
             var textName = roleItem.transform.Find("Label").GetComponent<Text>();
             var toggle = roleItem.GetComponent<Toggle>();
             toggle.group = _roleListToggleGroup;
-            //textName.text = roleInfo.name;
-            textName.text = roleInfo.Value.name;
+            textName.text = roleInfo.name;
+            //textName.text = roleInfo.Value.name;
             //用闭包实现角色索引和Toggle的绑定
             var index = i;
             ++i;
@@ -75,11 +74,12 @@ public class SelectRole : MonoBehaviour
             _modelPositon.transform.rotation = Quaternion.Euler(0,0,0);
             //记录选择的索引
             _selectRoleIndex = roleindex;
-            //var curRoleInfo = UserData.instance.allRole[roleindex];
-            var curRoleInfo = RoleTable.instance[roleindex];
+            var curRoleInfo = UserData.instance.allRole[roleindex];
+            //var curRoleInfo = RoleTable.instance[roleindex];
             try
             {
-                var model = ResourcesManager.instance.GetInstance((curRoleInfo.modelPath), _modelPositon.transform);
+                var modelPath = RoleTable.instance[curRoleInfo.modelId].modelPath;
+                var model = ResourcesManager.instance.GetInstance((modelPath), _modelPositon.transform);
             }
             catch(Exception message)
             {
@@ -93,5 +93,9 @@ public class SelectRole : MonoBehaviour
     private void onBtnEnterClick()
     {
         Debug.Log("选中了角色：" + _selectRoleIndex);
+
+        //发送一个选中角色消息
+        SelectRoleCmd cmd = new SelectRoleCmd() { index = _selectRoleIndex };
+        Net.instance.SendCmd(cmd);
     }
 }

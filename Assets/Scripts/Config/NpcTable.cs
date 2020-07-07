@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 
-
 //Npc表内数据结构
 public class NpcDatabase:TableDatabase
 {

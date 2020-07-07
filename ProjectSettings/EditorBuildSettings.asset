@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SelectRole.unity
     guid: bf0be2e10cb393e44828839078f2deaf
+  - enabled: 1
+    path: Assets/Scenes/Map/1001.unity
+    guid: be0f1970713d2d84ebff3ae8abe55a6a
+  - enabled: 1
+    path: Assets/Scenes/Map/1002.unity
+    guid: 54eb6799bc6e8ee41a854d7a86061b5e
+  - enabled: 1
+    path: Assets/Scenes/Map/1003.unity
+    guid: c108950fe5232f24cb10ba1c10d57bba
   m_configObjects: {}

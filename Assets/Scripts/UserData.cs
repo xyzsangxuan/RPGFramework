@@ -1,24 +1,29 @@
 ﻿using System.Collections.Generic;
-
-//选人界面角色结构
-public  class SelectRoleInfo
-{
-    public string name;//角色名字
-    public string modelResPath;//模型资源路径
-}
+using UnityEngine.SceneManagement;
 
 //用户数据
 public class UserData : Singleton<UserData>
 {
-    //假的角色数据
-    public  List<SelectRoleInfo> allRole = new List<SelectRoleInfo>();
-
-    public UserData()
+    public List<SelectRoleInfo> allRole = new List<SelectRoleInfo>();
+    internal static void OnRoleList(Cmd cmd)
     {
-        allRole.Add(new SelectRoleInfo() { name = "第一个角色", modelResPath = "Prefabs/Player0" });
-        allRole.Add(new SelectRoleInfo() { name = "第二个角色", modelResPath = "Prefabs/Player1" });
-        allRole.Add(new SelectRoleInfo() { name = "第三个角色", modelResPath = "Prefabs/Player2" });
-        allRole.Add(new SelectRoleInfo() { name = "第四个角色", modelResPath = "Prefabs/Player3" });
+        //cmd的类型必须是RoleListCmd
+        if (!Net.CheckCmd(cmd, typeof(RoleListCmd))) { return; }
+        RoleListCmd roleListCmd = cmd as RoleListCmd;
+       
+
+        UserData.instance.allRole = roleListCmd.allRole;
+
+        if (roleListCmd.allRole.Count > 0)
+        {
+            //选人界面
+            SceneManager.LoadScene("SelectRole");
+        }
+        else
+        {
+            //创建角色界面
+            SceneManager.LoadScene("CreateRole");
+        }
     }
 }
 

@@ -63,13 +63,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Common\QuickCoroutine.cs" />
     <Compile Include="Assets\Scripts\Common\ResourcesManager.cs" />
     <Compile Include="Assets\Scripts\Common\Singleton.cs" />
     <Compile Include="Assets\Scripts\Config\ConfigTable.cs" />
+    <Compile Include="Assets\Scripts\Config\MapTable.cs" />
     <Compile Include="Assets\Scripts\Config\NpcTable.cs" />
     <Compile Include="Assets\Scripts\Config\RoleTable.cs" />
     <Compile Include="Assets\Scripts\Extern\UnityExtern.cs" />
-    <Compile Include="Assets\Scripts\Logic\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Logic\GameMgr.cs" />
+    <Compile Include="Assets\Scripts\Logic\MainRole.cs" />
+    <Compile Include="Assets\Scripts\Logic\Role.cs" />
+    <Compile Include="Assets\Scripts\Logic\RoleMgr.cs" />
+    <Compile Include="Assets\Scripts\Logic\SceneMgr.cs" />
+    <Compile Include="Assets\Scripts\Logic\UtilsMonoBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Net\Cmd.cs" />
+    <Compile Include="Assets\Scripts\Net\Net.cs" />
+    <Compile Include="Assets\Scripts\Server\CmdParser.cs" />
+    <Compile Include="Assets\Scripts\Server\DB.cs" />
+    <Compile Include="Assets\Scripts\Server\Player.cs" />
+    <Compile Include="Assets\Scripts\Server\RoleServer.cs" />
+    <Compile Include="Assets\Scripts\Server\Server.cs" />
     <Compile Include="Assets\Scripts\Setup.cs" />
     <Compile Include="Assets\Scripts\UI\Setup\Login.cs" />
     <Compile Include="Assets\Scripts\UI\Setup\SelectRole.cs" />
@@ -251,6 +265,9 @@
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.1f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Data.Sqlite">
+      <HintPath>D:/Respos/FrameWork_RPG/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
       <HintPath>D:/Respos/FrameWork_RPG/Library/PackageCache/com.unity.burst@1.2.0-preview.11/Unity.Burst.Unsafe.dll</HintPath>
