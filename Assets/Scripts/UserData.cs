@@ -17,7 +17,8 @@ public class UserData : Singleton<UserData>
         if (roleListCmd.allRole.Count > 0)
         {
             //选人界面
-            SceneManager.LoadScene("SelectRole");
+            //SceneManager.LoadScene("SelectRole");
+            UIManager.instance.Repalce("UIPrefabs/SelectRole/SelectRole", UILayer.Normal);
         }
         else
         {

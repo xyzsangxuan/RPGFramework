@@ -1,0 +1,4 @@
+ID,名字,资源路径
+id,name,resPath
+1,音爆,Prefabs/Skill/bat_aoe
+2,风雪,Prefabs/Skill/bat_aoe_durable

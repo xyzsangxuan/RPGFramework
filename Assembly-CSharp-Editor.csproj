@@ -286,6 +286,12 @@
     <Reference Include="Mono.Data.Sqlite">
       <HintPath>D:/Respos/FrameWork_RPG/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data">
+      <HintPath>D:/Respos/FrameWork_RPG/Assets/Plugins/System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>D:/Respos/FrameWork_RPG/Assets/Scripts/LiteJson/LitJson.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Unsafe">
       <HintPath>D:/Respos/FrameWork_RPG/Library/PackageCache/com.unity.burst@1.2.0-preview.11/Unity.Burst.Unsafe.dll</HintPath>
     </Reference>

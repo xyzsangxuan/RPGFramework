@@ -44,6 +44,7 @@ public class Net : Singleton<Net>, IClient
         _parser.Add(typeof(EnterMapCmd), SceneMgr.OnEnterMap); 
         _parser.Add(typeof(MainRoleThisIdCmd), RoleMgr.OnMainRoleThisid);
         _parser.Add(typeof(CreateSceneRole), RoleMgr.OnCreateSceneRole);
+        _parser.Add(typeof(CreateSceneNpc), NpcMgr.OncreateSceneNpc);
     }
 
     public void ConnectServer(Action successCallback,Action failedCallback)
@@ -51,6 +52,8 @@ public class Net : Singleton<Net>, IClient
         //给变量_server赋值
         _server = Server.instance;
         _server.Connect(this);
+
+
         if (true)
         {
             if(successCallback != null) { successCallback(); }
@@ -73,7 +76,7 @@ public class Net : Singleton<Net>, IClient
         {
             //_server.send();
             Debug.Log("客户端收到消息: " + cachaCmd.GetType());
-            //分发给静态函数OnLogin
+            //分发给静态函数
             Action<Cmd> func;
             if (_parser.TryGetValue(cachaCmd.GetType(), out func))
             {

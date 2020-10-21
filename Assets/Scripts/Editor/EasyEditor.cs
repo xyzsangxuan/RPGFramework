@@ -11,6 +11,11 @@ public class EasyEditor : Editor
         EditorSceneManager.OpenScene(Application.dataPath + "/Scenes/Setup.unity");
     }
 
+    [MenuItem("Custom/GotoUIEditor")]
+    public static void GotoUIEditor()
+    {
+        EditorSceneManager.OpenScene(Application.dataPath + "/Scenes/UIEditor.unity");
+    }
 
     //把配置文件放入Resources目录下
     [MenuItem("Custom/ConfigToResources")]

@@ -63,32 +63,82 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Resources\Prefabs\TestNav.cs" />
+    <Compile Include="Assets\Scripts\Common\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Common\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Common\QuickCoroutine.cs" />
     <Compile Include="Assets\Scripts\Common\ResourcesManager.cs" />
     <Compile Include="Assets\Scripts\Common\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Common\TimeLine.cs" />
+    <Compile Include="Assets\Scripts\Common\TimerMgr.cs" />
+    <Compile Include="Assets\Scripts\Common\UtilsMonoBehaviour.cs" />
     <Compile Include="Assets\Scripts\Config\ConfigTable.cs" />
+    <Compile Include="Assets\Scripts\Config\FlyObjectTable.cs" />
     <Compile Include="Assets\Scripts\Config\MapTable.cs" />
     <Compile Include="Assets\Scripts\Config\NpcTable.cs" />
+    <Compile Include="Assets\Scripts\Config\ParticleTable.cs" />
     <Compile Include="Assets\Scripts\Config\RoleTable.cs" />
+    <Compile Include="Assets\Scripts\Config\SettlementTable.cs" />
+    <Compile Include="Assets\Scripts\Config\SkillTable.cs" />
+    <Compile Include="Assets\Scripts\Extern\TouchEX.cs" />
+    <Compile Include="Assets\Scripts\Extern\TouchQutSideEx.cs" />
     <Compile Include="Assets\Scripts\Extern\UnityExtern.cs" />
+    <Compile Include="Assets\Scripts\Extern\Util.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\AI\StateMachine\NpcAI.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\AI\StateMachine\State.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\AI\StateMachine\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\AI\StateMachine\StateMachineEngine.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\JumpMapPoint.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\Npc\Creature.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\Npc\Npc.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\Npc\NpcMgr.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\Role\MainRole.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\Role\Purpose.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\Role\Role.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\Role\RoleMgr.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\Role\SelectMgr.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\SKill\CastSkillAssist.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\SKill\DamageMgr.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\SKill\SkillCD.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\SKill\SkillCaster.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\SKill\SkillLogic\SkillAOELogic.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\SKill\SkillLogic\SkillDurableAOELogic.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\SKill\SkillLogic\SkillFireBallLogic.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\SKill\SkillLogic\SkillLogicBase.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\SKill\SkillLogic\SkillNormalAttackLogic.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\SKill\SkillMgr.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\SKill\SkillObject\DurableSettlementObject.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\SKill\SkillObject\FlyObject.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\SKill\SkillObject\ParticleObject.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\SKill\SkillObject\SettlementObject.cs" />
+    <Compile Include="Assets\Scripts\Logic\FightScene\SceneMgr.cs" />
+    <Compile Include="Assets\Scripts\Logic\GameEngine.cs" />
     <Compile Include="Assets\Scripts\Logic\GameMgr.cs" />
-    <Compile Include="Assets\Scripts\Logic\MainRole.cs" />
-    <Compile Include="Assets\Scripts\Logic\Role.cs" />
-    <Compile Include="Assets\Scripts\Logic\RoleMgr.cs" />
-    <Compile Include="Assets\Scripts\Logic\SceneMgr.cs" />
-    <Compile Include="Assets\Scripts\Logic\UtilsMonoBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Logic\GameSetting.cs" />
+    <Compile Include="Assets\Scripts\Logic\UI\FightUI\FightUIMgr.cs" />
+    <Compile Include="Assets\Scripts\Logic\UI\FightUI\FunctionHall.cs" />
+    <Compile Include="Assets\Scripts\Logic\UI\FightUI\Joystick.cs" />
+    <Compile Include="Assets\Scripts\Logic\UI\FightUI\SkillAtkDlg.cs" />
+    <Compile Include="Assets\Scripts\Logic\UI\FightUI\TargetHead.cs" />
+    <Compile Include="Assets\Scripts\Logic\UI\FightUI\TouchScene.cs" />
+    <Compile Include="Assets\Scripts\Logic\UI\ModelStudio.cs" />
+    <Compile Include="Assets\Scripts\Logic\UI\Setup\Login.cs" />
+    <Compile Include="Assets\Scripts\Logic\UI\Setup\SelectRole.cs" />
+    <Compile Include="Assets\Scripts\Logic\UI\System\DialogMgr.cs" />
+    <Compile Include="Assets\Scripts\Logic\UI\System\RoleAttrDlg.cs" />
+    <Compile Include="Assets\Scripts\Logic\UI\System\UIModelMgr.cs" />
+    <Compile Include="Assets\Scripts\Logic\UI\UIManager.cs" />
+    <Compile Include="Assets\Scripts\Logic\UI\UIModelStudio.cs" />
     <Compile Include="Assets\Scripts\Net\Cmd.cs" />
     <Compile Include="Assets\Scripts\Net\Net.cs" />
-    <Compile Include="Assets\Scripts\Server\CmdParser.cs" />
-    <Compile Include="Assets\Scripts\Server\DB.cs" />
-    <Compile Include="Assets\Scripts\Server\Player.cs" />
-    <Compile Include="Assets\Scripts\Server\RoleServer.cs" />
-    <Compile Include="Assets\Scripts\Server\Server.cs" />
     <Compile Include="Assets\Scripts\Setup.cs" />
-    <Compile Include="Assets\Scripts\UI\Setup\Login.cs" />
-    <Compile Include="Assets\Scripts\UI\Setup\SelectRole.cs" />
-    <Compile Include="Assets\Scripts\UI\Setup\TouchRotate.cs" />
     <Compile Include="Assets\Scripts\UserData.cs" />
+    <Compile Include="Assets\Server\CmdParser.cs" />
+    <Compile Include="Assets\Server\DB.cs" />
+    <Compile Include="Assets\Server\Player.cs" />
+    <Compile Include="Assets\Server\PlayerData.cs" />
+    <Compile Include="Assets\Server\RoleServer.cs" />
+    <Compile Include="Assets\Server\Server.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -268,6 +318,12 @@
     </Reference>
     <Reference Include="Mono.Data.Sqlite">
       <HintPath>D:/Respos/FrameWork_RPG/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>D:/Respos/FrameWork_RPG/Assets/Plugins/System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>D:/Respos/FrameWork_RPG/Assets/Scripts/LiteJson/LitJson.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
       <HintPath>D:/Respos/FrameWork_RPG/Library/PackageCache/com.unity.burst@1.2.0-preview.11/Unity.Burst.Unsafe.dll</HintPath>

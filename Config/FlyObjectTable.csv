@@ -1,0 +1,3 @@
+ID,名字,资源路径,飞行速度, 半径,持续时间,是否追踪(false:不追 true：追踪）
+id,name,resPath,flySpeed,radius,duringTime,trace
+1,火球,Prefabs/Skill/FS_Skill1_3,20,0.5,3,FALSE

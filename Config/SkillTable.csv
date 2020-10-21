@@ -1,0 +1,6 @@
+ID,名字,描述,技能脚本,时间线,伤害,施法范围,吟唱时间,冷却,伤害范围,持续时间,消耗
+id,name,desc,scriptType,timeLine,damage,castRange,preTime,CD,damageRange,duringTime,cost
+1,火球,一个火球,SkillFireBallLogic,,,10,,2,,,
+2,AOE,范围技能,SkillAOELogic,,,-1,,4,4,,
+3,普通砍击,拿刀砍,SkillNormalAttackLogic,,,2,,1,,,
+4,暴风雪,一场雪,SkillDurableAOELogic,,,4,,10,5,6,

@@ -44,6 +44,6 @@
 |  | UI | Setup | Login.cs ||
 |  |  || SelectRole.cs ||
 |  |  || TouchRotate.cs ||
-|  | Setup ||||
-|  | UserData ||||
+|  | Setup.cs ||||
+|  | UserData.cs ||||
 |  |  ||||

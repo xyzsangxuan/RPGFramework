@@ -1,7 +1,8 @@
-id,name,modelPath
-1,小满,Prefabs/Role/Player0
-2,小k,Prefabs/Role/Player1
-3,洋洋,Prefabs/Role/Player2
-4,小天,Prefabs/Role/Player3
-5,特技,Prefabs/Role/Player1
-6,小鬼,Prefabs/Role/Player1
+ID,名字,模型路径,技能列表,初始血量,攻击力,防御力
+id,name,modelPath,skillList,hp,attack,defence
+1,小满,Prefabs/Role/Player0,3$1$2$4$1,150,10,5
+2,小k,Prefabs/Role/Player1,3$1$2$4$1,120,8,5
+3,洋洋,Prefabs/Role/Player2,3$1$2$4$1,130,4,5
+4,小天,Prefabs/Role/Player3,3$1$2$4$1,100,8,5
+5,特技,Prefabs/Role/Player4,3$1$2$4$1,100,8,5
+6,小鬼,Prefabs/Role/Player1,3$1$2$4$1,100,8,5

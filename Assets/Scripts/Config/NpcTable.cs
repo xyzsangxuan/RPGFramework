@@ -1,18 +1,25 @@
 ﻿using System.Collections.Generic;
 
-//Npc表内数据结构
-public class NpcDatabase:TableDatabase
+
+public class CreatureDatabase : TableDatabase
 {
     public string name;
     public string modelPath;
-    public List<int> TestIDList;
+    public List<int> skillList;
+    
+    public int hp;
+    public int attack;
+    public int defence;
+}
+
+//Npc表内数据结构
+public class NpcDatabase: CreatureDatabase
+{
+    public int NpcType;//1:功能NPC 2:怪物
 }
 
 //角色表 字典
 public class NpcTable : ConfigTable<NpcDatabase,NpcTable>
 {
-    public NpcTable()
-    {
-        Load("Config/NpcTable.csv");
-    }
+    
 }

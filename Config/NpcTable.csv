@@ -1,5 +1,6 @@
-id,name,modelPath,TestIDList
-1,雨,Prefabs/Npc/PlayerBackup,1$2$12$3
-2,天,Prefabs/Npc/PlayerBackup,1$2$12$3
-3,山,Prefabs/Npc/PlayerBackup,1$2$12$3
-4,风,Prefabs/Npc/PlayerBackup,1$2$12$3
+ID,名字,模型路径,测试字段,NPC类型（1：功能Npc2：怪物）,初始血量,攻击力,防御力
+id,name,modelPath,skillList,NpcType,hp,attack,defence
+1,雨,Prefabs/Npc/4,1$3$2$1$1,1,110,80,5
+2,天,Prefabs/Npc/4,1$3$2$1$1,2,105,50,5
+3,山,Prefabs/Npc/4,1$3$2$1$1,2,120,40,5
+4,风,Prefabs/Npc/4,1$3$2$1$1,1,100,90,5

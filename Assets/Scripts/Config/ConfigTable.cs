@@ -22,6 +22,12 @@ public class ConfigTable<TDatabase,T>: Singleton<T>
     //id,数据条目
     Dictionary<int, TDatabase> _cache = new Dictionary<int, TDatabase>();
 
+    public ConfigTable()
+    {
+        //Load("");自己写
+        Load("Config/" + GetType().ToString() + ".csv");
+    }
+
     protected void Load(string tablePath)
     {
         MemoryStream tableStream;
@@ -44,13 +50,21 @@ public class ConfigTable<TDatabase,T>: Singleton<T>
         //读取器
         using (var reader = new StreamReader(tableStream, Encoding.GetEncoding("gb2312")))
         {
-            //第一行字段名 反射
-            var fieldNameStr = reader.ReadLine();
-            var fieldNameArray = fieldNameStr.Split(',');
-            List<FieldInfo> allFieldInfo = new List<FieldInfo>();
+            reader.ReadLine();//跳过注释（表中第一行）
+            //字段名 反射
+            var fieldNameStr = reader.ReadLine();//获取第一行数据
+            var fieldNameArray = fieldNameStr.Split(',');//将第一行数据取成var数组
+            List<FieldInfo> allFieldInfo = new List<FieldInfo>();//利用反射FieldInfo 初始化一个表名的空列
             foreach(var fieldName in fieldNameArray)
             {
-                allFieldInfo.Add(typeof(TDatabase).GetField(fieldName));
+
+                var fieldType = typeof(TDatabase).GetField(fieldName);//将数组中的每一个字符串元素，反射到TDatabase类中
+                if(fieldType == null)
+                {
+                    Debug.LogError("表中字段未在程序中定义"+fieldName);
+                    continue;
+                }
+                allFieldInfo.Add(fieldType);//将获取的对应的类型添加到空列中
             }
             //正式数据
             var lineStr = reader.ReadLine();
@@ -78,7 +92,12 @@ public class ConfigTable<TDatabase,T>: Singleton<T>
             //int float string bool array(list)
             if (field.FieldType == typeof(int))
             {
-                field.SetValue(db, int.Parse(data));
+                int fieldValue;
+                if (!int.TryParse(data, out fieldValue))
+                {
+                    fieldValue = 0;
+                }
+                field.SetValue(db, fieldValue);
             }
             else if (field.FieldType == typeof(string))
             {
@@ -86,11 +105,21 @@ public class ConfigTable<TDatabase,T>: Singleton<T>
             }
             else if (field.FieldType == typeof(float))
             {
-                field.SetValue(db, float.Parse(data));
+                float fieldValue;
+                if(!float.TryParse(data,out fieldValue))
+                {
+                    fieldValue = 0;
+                }
+                field.SetValue(db, fieldValue);
             }
             else if (field.FieldType == typeof(bool))
             {
-                field.SetValue(db, bool.Parse(data));
+                bool fieldValue;
+                if (!bool.TryParse(data, out fieldValue))
+                {
+                    fieldValue = false;
+                }
+                field.SetValue(db, fieldValue);
             }
             else if (field.FieldType == typeof(List<int>))
             {
@@ -98,7 +127,12 @@ public class ConfigTable<TDatabase,T>: Singleton<T>
                 //1$2$12$3
                 foreach(var itemStr in data.Split('$'))
                 {
-                    list.Add(int.Parse(itemStr));
+                    int fieldValue;
+                    if (!int.TryParse(itemStr, out fieldValue))
+                    {
+                        fieldValue = 0;
+                    }
+                    list.Add(fieldValue);
                 }
                 field.SetValue(db, list);
             }
@@ -112,7 +146,12 @@ public class ConfigTable<TDatabase,T>: Singleton<T>
                 //1$2$12$3
                 foreach (var itemStr in data.Split('$'))
                 {
-                    list.Add(float.Parse(itemStr));
+                    float fieldValue;
+                    if (!float.TryParse(itemStr, out fieldValue))
+                    {
+                        fieldValue = 0;
+                    }
+                    list.Add(fieldValue);
                 }
                 field.SetValue(db, list);
             }

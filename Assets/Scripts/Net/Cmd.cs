@@ -47,12 +47,38 @@ public class EnterMapCmd : Cmd
     public int mapId;
 }
 
-public class CreateSceneRole:Cmd
+public class CreateSceneCreature : Cmd
 {
     public int thisId;
     public string name;
     public int modelId;
     //血量、攻防
+    public int hp;
+    public int maxHp;
+    public int attack;
+    public int defence;
+
     public float3 pos;
     public float3 faceTo;
+}
+
+public class CreateSceneRole: CreateSceneCreature
+{
+
+}
+
+public class CreateSceneNpc : CreateSceneCreature
+{
+
+}
+
+
+public class JumpTo : Cmd
+{
+    public int id;
+}
+//允许跳入某个地图
+public class JumpToMap : Cmd
+{
+    public int mapId;
 }

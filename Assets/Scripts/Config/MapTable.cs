@@ -9,9 +9,6 @@
 //地图表
 public class MapTable : ConfigTable<MapDatabase, MapTable>
 {
-    public MapTable()
-    {
-        Load("Config/MapTable.csv");
-    }
+    
 }
 
