@@ -1,4 +1,4 @@
-# RPGFramework
+# RPGFramework（已归档）
 这是一个简单的RPG游戏模板
 ## 目前程序结构：
 
